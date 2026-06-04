@@ -8,13 +8,13 @@ class TextFieldInput extends StatelessWidget {
   final TextInputType keyboardType;
 
   const TextFieldInput({
-    super.key,
+    Key? key,
     required this.controller,
     required this.ispassword,
     required this.hintText,
     this.suffixIcon,
     required this.keyboardType,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +22,8 @@ class TextFieldInput extends StatelessWidget {
       keyboardType: keyboardType,
       controller: controller,
       cursorColor: const Color.fromARGB(218, 226, 37, 24),
+      textInputAction: TextInputAction.next,
+      obscureText: ispassword,
       decoration: InputDecoration(
         hintText: hintText,
         border: const OutlineInputBorder(
@@ -46,8 +48,6 @@ class TextFieldInput extends StatelessWidget {
         contentPadding: const EdgeInsets.all(8),
         suffixIcon: suffixIcon,
       ),
-      textInputAction: TextInputAction.next,
-      obscureText: ispassword,
     );
   }
 }
